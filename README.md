@@ -1,6 +1,6 @@
 # NeuroDock
 
-Premium floating focus timer widget built with React + Tailwind + Framer Motion.
+timer widget built with React + Tailwind + Framer Motion.
 
 ## Features
 - Draggable floating pill widget with default bottom-right docking.
