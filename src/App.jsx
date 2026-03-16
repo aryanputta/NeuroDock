@@ -1,6 +1,7 @@
 import RocketWidget from './components/RocketWidget';
 
 export default function App() {
+function App() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-zinc-200 via-zinc-100 to-zinc-50">
       <section className="mx-auto max-w-3xl p-10 text-zinc-600">
@@ -14,3 +15,13 @@ export default function App() {
     </main>
   );
 }
+      <RocketWidget />
+    <main className="min-h-screen bg-gradient-to-br from-zinc-200 via-zinc-100 to-white">
+      <div className="relative h-screen w-screen overflow-hidden p-8">
+        <RocketWidget />
+      </div>
+    </main>
+  );
+}
+
+export default App;
