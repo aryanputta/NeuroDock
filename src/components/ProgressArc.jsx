@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 
+function ProgressArc({ progress, color, mode }) {
+  const radius = 49;
 function ProgressArc({ progress, color }) {
   const radius = 48;
   const circumference = 2 * Math.PI * radius;
@@ -7,6 +9,11 @@ function ProgressArc({ progress, color }) {
 
   return (
     <div className="absolute inset-0 z-10 flex items-center justify-center">
+      <svg width="150" height="150" viewBox="0 0 150 150" className="-rotate-90">
+        <circle cx="75" cy="75" r={radius} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="8" />
+        <motion.circle
+          cx="75"
+          cy="75"
       <svg width="140" height="140" viewBox="0 0 140 140" className="-rotate-90">
         <circle cx="70" cy="70" r={radius} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="5" />
         <motion.circle
@@ -16,6 +23,18 @@ function ProgressArc({ progress, color }) {
           fill="none"
           stroke={color}
           strokeLinecap="round"
+          strokeWidth={mode === 'gameboy' ? '7' : '8'}
+          strokeDasharray={circumference}
+          animate={{
+            strokeDashoffset: dashOffset,
+            filter: [`drop-shadow(0 0 3px ${color})`, `drop-shadow(0 0 12px ${color})`],
+            opacity: progress > 0.92 ? [0.85, 1, 0.85] : 1,
+          }}
+          transition={{
+            strokeDashoffset: { duration: 0.4 },
+            filter: { duration: 1.6, repeat: Infinity, repeatType: 'mirror' },
+            opacity: { duration: 0.65, repeat: Infinity },
+          }}
           strokeWidth="5"
           strokeDasharray={circumference}
           animate={{ strokeDashoffset: dashOffset, filter: [`drop-shadow(0 0 2px ${color})`, `drop-shadow(0 0 7px ${color})`] }}
