@@ -7,6 +7,7 @@ export default {
         'press-start': ['"Press Start 2P"', 'monospace'],
       },
     },
+    extend: {},
   },
   plugins: [],
 };
